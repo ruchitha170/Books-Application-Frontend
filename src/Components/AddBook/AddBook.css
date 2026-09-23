@@ -1,0 +1,468 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* =========================
+   MAIN BACKGROUND
+========================= */
+
+.main-container {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    position: relative;
+    overflow: hidden;
+
+    background: linear-gradient(
+        135deg,
+        #f8f5ee,
+        #eaf4ed,
+        #f5efe3
+    );
+}
+
+
+/* Decorative circles */
+
+.main-container::before {
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    left: -120px;
+    top: -120px;
+
+    border-radius: 50%;
+
+    background: #d8ead9;
+
+    opacity: 0.7;
+
+    animation: circleMove 8s ease-in-out infinite;
+}
+
+.main-container::after {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    right: -100px;
+    bottom: -100px;
+
+    border-radius: 50%;
+
+    background: #f1dfbd;
+
+    opacity: 0.7;
+
+    animation: circleMove 10s ease-in-out infinite reverse;
+}
+
+
+/* =========================
+   FORM CARD
+========================= */
+
+.book-details-container {
+    width: 100%;
+    max-width: 470px;
+
+    padding: 42px;
+
+    position: relative;
+    z-index: 2;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    border-radius: 24px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow:
+        0 20px 50px rgba(45, 62, 48, 0.15);
+
+    animation: cardAppear 0.8s ease-out;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Card hover */
+
+.book-details-container:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 25px 60px rgba(45, 62, 48, 0.2);
+}
+
+
+/* =========================
+   BOOK ICON
+========================= */
+
+.book-icon {
+    width: 75px;
+    height: 75px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 38px;
+
+    border-radius: 20px;
+
+    background: #e6f2e7;
+
+    border: 1px solid #cfe4d1;
+
+    box-shadow:
+        0 8px 20px rgba(76, 125, 82, 0.12);
+
+    animation: bookBounce 3s ease-in-out infinite;
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+.book-details-container h2 {
+    margin: 0;
+
+    text-align: center;
+
+    color: #294332;
+
+    font-size: 30px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+
+/* Subtitle */
+
+.subtitle {
+    margin: 8px 0 30px;
+
+    text-align: center;
+
+    color: #7a847d;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   INPUT GROUP
+========================= */
+
+.input-group {
+    margin-bottom: 20px;
+
+    animation: slideInput 0.7s ease both;
+}
+
+.input-group:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.input-group:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.input-group:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+
+/* =========================
+   LABEL
+========================= */
+
+.input-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #3d5143;
+
+    font-size: 15px;
+
+    font-weight: 600;
+}
+
+
+/* =========================
+   INPUT
+========================= */
+
+.input-group input {
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border: 1.5px solid #d9e1da;
+
+    border-radius: 11px;
+
+    outline: none;
+
+    background: #fafcf9;
+
+    color: #334238;
+
+    font-size: 15px;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+
+/* Placeholder */
+
+.input-group input::placeholder {
+    color: #a2aaa4;
+}
+
+
+/* Focus */
+
+.input-group input:focus {
+    background: white;
+
+    border-color: #6b9b70;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 0 4px rgba(107, 155, 112, 0.12);
+}
+
+
+/* =========================
+   ADD BUTTON
+========================= */
+
+button {
+    width: 100%;
+
+    padding: 14px;
+
+    margin-top: 8px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background: #527a57;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.4px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 18px rgba(82, 122, 87, 0.25);
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Button hover */
+
+button:hover {
+    background: #3f6645;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(82, 122, 87, 0.3);
+}
+
+
+/* Button click */
+
+button:active {
+    transform: scale(0.97);
+}
+
+
+/* Button text */
+
+button span {
+    display: inline-block;
+
+    transition: transform 0.3s ease;
+}
+
+button:hover span {
+    transform: scale(1.04);
+}
+
+
+/* =========================
+   CARD ANIMATION
+========================= */
+
+@keyframes cardAppear {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(40px)
+            scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================
+   INPUT ANIMATION
+========================= */
+
+@keyframes slideInput {
+
+    0% {
+        opacity: 0;
+
+        transform: translateX(-20px);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform: translateX(0);
+    }
+}
+
+
+/* =========================
+   BOOK ANIMATION
+========================= */
+
+@keyframes bookBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+
+/* =========================
+   BACKGROUND CIRCLE
+========================= */
+
+@keyframes circleMove {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(20px, 20px);
+    }
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media screen and (max-width: 768px) {
+
+    .main-container {
+        padding: 25px;
+    }
+
+    .book-details-container {
+        max-width: 450px;
+
+        padding: 35px 30px;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media screen and (max-width: 500px) {
+
+    .main-container {
+        padding: 20px 15px;
+    }
+
+    .book-details-container {
+        padding: 30px 22px;
+
+        border-radius: 20px;
+    }
+
+    .book-details-container h2 {
+        font-size: 26px;
+    }
+
+    .book-icon {
+        width: 65px;
+        height: 65px;
+
+        font-size: 32px;
+    }
+
+    .input-group input {
+        padding: 13px;
+    }
+
+    button {
+        padding: 14px;
+    }
+}

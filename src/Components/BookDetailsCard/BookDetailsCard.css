@@ -1,0 +1,142 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.maincontainer {
+    min-height: 100vh;
+    padding: 40px 30px;
+    background: linear-gradient(135deg, #eef2ff, #f8fafc);
+}
+
+.main-heading {
+    text-align: center;
+    color: #1e293b;
+    font-size: 36px;
+    margin-bottom: 35px;
+}
+.search-main-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.search-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+   margin-bottom: 40px;
+    width: 400px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+.search-input{
+   
+    background-color: transparent;
+    border: solid 0px;
+    
+}
+.search-icon{
+    height: 30px;
+    width: 30px;
+}
+.books-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.dashboardcontainer {
+    background-color: white;
+    padding: 25px;
+    border-radius: 15px;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.1);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboardcontainer:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.book-name {
+    color: #4f46e5;
+    font-size: 22px;
+    margin-top: 0;
+    margin-bottom: 18px;
+}
+
+.author-name {
+    color: #475569;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.author-name span {
+    font-weight: bold;
+    color: #1e293b;
+}
+
+.book-price {
+    display: inline-block;
+
+    padding: 8px 14px;
+    border-radius: 8px;
+
+    background-color: #ecfdf5;
+    color: #047857;
+
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.message {
+    text-align: center;
+    color: #475569;
+    font-size: 18px;
+}
+
+.error-message {
+    text-align: center;
+    color: #dc2626;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Tablet */
+@media screen and (max-width: 900px) {
+    .books-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 600px) {
+    .maincontainer {
+        padding: 25px 15px;
+    }
+
+    .main-heading {
+        font-size: 30px;
+    }
+
+    .books-container {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboardcontainer {
+        padding: 20px;
+    }
+}

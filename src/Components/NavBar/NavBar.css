@@ -1,0 +1,282 @@
+* {
+    box-sizing: border-box;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.nav-bar-container {
+    width: 100%;
+
+    min-height: 75px;
+
+    padding: 0 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+    position: relative;
+    z-index: 100;
+
+    animation: navBarEntry 0.7s ease-out;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #294332;
+
+    font-size: 22px;
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+
+    transition: transform 0.3s ease;
+}
+
+.nav-logo:hover {
+    transform: translateY(-2px);
+}
+
+.nav-logo:first-letter {
+    font-size: 28px;
+}
+
+
+/* =========================
+   NAV LINKS CONTAINER
+========================= */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+/* =========================
+   NAV LINK
+========================= */
+
+.nav-link {
+    min-width: 120px;
+
+    padding: 11px 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    color: #526158;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    position: relative;
+
+    transition:
+        color 0.3s ease,
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* =========================
+   ICON
+========================= */
+
+.nav-icon {
+    font-size: 17px;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+/* =========================
+   HOVER
+========================= */
+
+.nav-link:hover {
+    color: #3f6645;
+
+    background: #edf6ee;
+
+    transform: translateY(-2px);
+}
+
+.nav-link:hover .nav-icon {
+    transform: scale(1.15) rotate(-5deg);
+}
+
+
+/* =========================
+   ACTIVE LINK
+========================= */
+
+.nav-link.active {
+    color: white;
+
+    background: #527a57;
+
+    box-shadow:
+        0 5px 15px rgba(82, 122, 87, 0.25);
+}
+
+
+/* Active icon */
+
+.nav-link.active .nav-icon {
+    animation: iconBounce 0.5s ease;
+}
+
+
+/* =========================
+   ACTIVE UNDERLINE
+========================= */
+
+.nav-link::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 4px;
+
+    width: 0;
+    height: 2px;
+
+    border-radius: 5px;
+
+    background: #527a57;
+
+    transform: translateX(-50%);
+
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 35px;
+}
+
+.nav-link.active::after {
+    display: none;
+}
+
+
+/* =========================
+   NAVBAR ENTRY
+========================= */
+
+@keyframes navBarEntry {
+    from {
+        opacity: 0;
+
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+   ICON ANIMATION
+========================= */
+
+@keyframes iconBounce {
+    0% {
+        transform: scale(0.8);
+    }
+
+    50% {
+        transform: scale(1.25);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media screen and (max-width: 700px) {
+
+    .nav-bar-container {
+        padding: 0 25px;
+    }
+
+    .nav-logo span {
+        display: none;
+    }
+
+    .nav-link {
+        min-width: 105px;
+
+        padding: 10px 14px;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media screen and (max-width: 500px) {
+
+    .nav-bar-container {
+        min-height: 65px;
+
+        padding: 0 15px;
+    }
+
+    .nav-logo {
+        font-size: 25px;
+    }
+
+    .nav-links {
+        gap: 5px;
+    }
+
+    .nav-link {
+        min-width: auto;
+
+        padding: 9px 10px;
+
+        font-size: 13px;
+    }
+
+    .nav-icon {
+        font-size: 15px;
+    }
+}

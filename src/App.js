@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import { Component } from 'react'
+import BookDetailsCard from './Components/BookDetailsCard/BookDetailsCard'
+import AddBook from './Components/AddBook/AddBook'
+import NavBar from './Components/NavBar/NavBar'
+import Cart from './Components/Cart/Cart'
+import {BrowserRouter,Route,Routes} from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class app extends Component{
+  state = {cartItems:[]}
+  addToCart = (eachItem) =>{
+      this.setState(prevState=>({cartItems:[...prevState.cartItems,eachItem]}))
+  }
+  removeItemFromCart = (eachItemId) => {
+    this.setState((prevState) => {
+      const filteredItems = prevState.cartItems.filter(
+        (eachItem) => eachItem.bookid !== eachItemId
+      )
+
+      return {
+        cartItems: filteredItems
+      }
+    })
+  }
+  render(){
+    const {cartItems} = this.state
+    console.log(cartItems)
+    return(
+      <BrowserRouter>
+        <NavBar/>
+        <Routes>
+          <Route path="/" element={<BookDetailsCard addToCart={this.addToCart}/>}/>
+          <Route path="/addBook" Component={AddBook} />
+          <Route path="/cart" element={<Cart cartItems={cartItems} removeItemFromCart={this.removeItemFromCart}/>}/>
+        </Routes>
+      </BrowserRouter>
+    )
+  }
 }
-
-export default App;
+export default app
